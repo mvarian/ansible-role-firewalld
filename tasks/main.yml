@@ -17,9 +17,9 @@
       interface={{ item.interface }}
       state={{ item.state | default ("enabled") }}
       permanent={{ item.permanent | default (True) }}
-    with_items: "{{ firewalld_zones }}"
-    notify: firewalld complete reload
-    when: firewalld_disable == false
+  with_items: "{{ firewalld_zones }}"
+  notify: firewalld complete reload
+  when: firewalld_disable == false
 
 - name: Add firewalld rules for services from vars
   firewalld:
